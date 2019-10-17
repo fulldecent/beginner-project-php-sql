@@ -20,28 +20,28 @@ Install SQLite on your computer (you may already have it). Test that it works by
 
 - [ ] Create a simple page `ricky-henderson.html` that displays the following information:
 
-      | Name | Henderson, R |
-      | ---- | ------------ |
-      | Pos  | LF           |
-      | G    | 3081         |
-      | AB   | 10961        |
-      | R    | 2295         |
-      | H    | 3055         |
-      | 2B   | 510          |
-      | 3B   | 66           |
-      | HR   | 297          |
-      | RBI  | 1115         |
-      | BB   | 2190         |
-      | SO   | 1694         |
-      | SB   | 1406         |
-      | CS   | 335          |
-      | AVG  | 0.279        |
-      | OBP  | 0.401        |
-      | SLG  | 0.419        |
-      | OPS  | 0.82         |
+  | Name | Henderson, R |
+  | ---- | ------------ |
+  | Pos  | LF           |
+  | G    | 3081         |
+  | AB   | 10961        |
+  | R    | 2295         |
+  | H    | 3055         |
+  | 2B   | 510          |
+  | 3B   | 66           |
+  | HR   | 297          |
+  | RBI  | 1115         |
+  | BB   | 2190         |
+  | SO   | 1694         |
+  | SB   | 1406         |
+  | CS   | 335          |
+  | AVG  | 0.279        |
+  | OBP  | 0.401        |
+  | SLG  | 0.419        |
+  | OPS  | 0.82         |
 
-      - You can learn what these stats mean by hovering over the table headngs at http://mlb.mlb.com/stats
-      - Use Bootstrap or Bulma.
+  - You can learn what these stats mean by hovering over the table headngs at http://mlb.mlb.com/stats
+  - Use Bootstrap or Bulma.
 
 - [ ] Create a simple page `index.html` which lists the name of five baseball players you like and each one of them links to `ricky-henderson.html`.
 
@@ -49,30 +49,30 @@ Install SQLite on your computer (you may already have it). Test that it works by
 
 - [ ] Use this code as a "mock" for your database query of all player names. This represents the format of data you will get later. Figure out how to weave this into your current code so that the PHP code creates the HTML code you want.
 
-      ```php
-      <?php
-      $playerNames = ['Henderson, R', 'Batty McBatson', 'Pitcher DeSusa'];
-      foreach ($playerNames as $playerName) {
-      ?>
-        
-      <p>HERE IS A PLAYER: <?php echo $playerName; ?> </p>
-
-      <?php
-      }
-      ?>
-      ```
+  ```php
+  <?php
+  $playerNames = ['Henderson, R', 'Batty McBatson', 'Pitcher DeSusa'];
+  foreach ($playerNames as $playerName) {
+  ?>
+    
+  <p>HERE IS A PLAYER: <?php echo $playerName; ?> </p>
+  
+  <?php
+  }
+  ?>
+  ```
 
 - [ ] Use this code as a mock for your database query about player details. Add the data from above in this mock and use the method below to weave the information "from the database" into your HTML.
 
-      ```php
-      <?php
-      $playerName = 'Henderson, R';
-      $playerDetails = ['Pos'=>'LF'];
-      ?>
-
-      <p>THE PLAYER NAME IS: <?php echo $playerName; ?> </p>
-      <p>THE PLAYER POSITION IS: <?php echo $playerDetails['Pos']; ?> </p>
-      ```
+  ```php
+  <?php
+  $playerName = 'Henderson, R';
+  $playerDetails = ['Pos'=>'LF'];
+  ?>
+  
+  <p>THE PLAYER NAME IS: <?php echo $playerName; ?> </p>
+  <p>THE PLAYER POSITION IS: <?php echo $playerDetails['Pos']; ?> </p>
+  ```
 
 
 - [ ] Update `index.php` so that that the links go to like `player.php?player=Henderson, R`
@@ -81,10 +81,10 @@ Install SQLite on your computer (you may already have it). Test that it works by
 
 - [ ] Create a SQL query which extracts the names of all players in the provided database.
 
-      ```sh
-      # Hint: here's how you run a query, this one extract all data from the database
-      sqlite3 -header players.db 'SELECT * FROM players'
-      ```
+  ```sh
+  # Hint: here's how you run a query, this one extract all data from the database
+  sqlite3 -header players.db 'SELECT * FROM players'
+  ```
 
 - [ ] Create a SQL query which returns all data for the player `Henderson, R`.
 
@@ -100,11 +100,11 @@ Install SQLite on your computer (you may already have it). Test that it works by
 
 - [ ] Point your browser to `player.php?player=Henderson, R`, now we want the PHP page to extract that name. Here's how you do that*:
 
-      ```php
-      <p>You are searching for: <?php echo $_GET['player'] ; ?> </p>
-      ```
+  ```php
+  <p>You are searching for: <?php echo $_GET['player'] ; ?> </p>
+  ```
 
-      *There is a security vulnerability in this example. You can ignore it for now. The solution is to use `htmlspecialchars()`.* 
+  *There is a security vulnerability in this example. You can ignore it for now. The solution is to use `htmlspecialchars()`.* 
 
 - [ ] Use the code `$playerName = $_GET['player']` to connect the name you are querying (in the `?player=…` part of the URL) with the query that selects data from the database.
 
